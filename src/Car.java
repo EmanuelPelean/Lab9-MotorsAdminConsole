@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 /**
  * 
  */
@@ -7,12 +9,15 @@
  *
  */
 public class Car {
+	// store all the instance variables for the Car objects that we can reference when needed
+	protected String make;
+	protected String model;
+	protected int year;
+	protected double price;
+	protected int carID;
+	protected String carType;
 
-	private String make;
-	private String model;
-	private int year;
-	private double price;
-
+	
 	Car() {
 		make = null;
 		model = null;
@@ -55,5 +60,47 @@ public class Car {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public int getCarID() {
+		return carID;
+	}
+
+	public void setCarID(int carID) {
+		this.carID = carID;
+	}
+	
+	public String getCarType() {
+		return carType;
+	}
+
+	public void setCarType(String carType) {
+		this.carType = carType;
+	}
+
+	
+	@Override
+	public String toString() {
+		//create a format to display the price correctly
+		DecimalFormat df = new DecimalFormat("#,###.00");
+
+		
+		return String.format("%-1d", carID) + "." + String.format("%-18s", capsFirst(make)) + String.format("%-18s", capsFirst(model)) + String.format("%-18d", year) 
+		+ "$" + String.format(df.format(price));
+	}
+	// method to format the make and model strings, will capitalize the first letter of each word
+	public static String capsFirst(String str) {
+	    String[] words = str.split(" ");
+	    StringBuilder ret = new StringBuilder();
+	    for(int i = 0; i < words.length; i++) {
+	        ret.append(Character.toUpperCase(words[i].charAt(0)));
+	        ret.append(words[i].substring(1));
+	        if(i < words.length - 1) {
+	            ret.append(' ');
+	        }
+	    }
+	    return ret.toString();
+	}
+
+	
 
 }

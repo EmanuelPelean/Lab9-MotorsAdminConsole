@@ -7,6 +7,29 @@ public class Validator {
 		sc.nextLine(); // discard any other data entered on the line
 		return s;
 	}
+	
+	public static String getStringSelection(Scanner sc, String prompt) {
+		String s = null;
+
+		boolean isValid = false;
+		while (isValid == false) {
+			System.out.print(prompt);
+			if (sc.hasNext()) {
+				s = sc.next();
+				sc.nextLine(); // discard any other data entered on the line
+				if (s.equalsIgnoreCase("SuperMario") || s.equalsIgnoreCase("StarWars")) {
+					isValid = true;
+				} else {
+					System.out.println("Error! Invalid answer. Please enter 'SuperMario' or 'StarWars'.");
+				}
+
+			} else {
+				System.out.println("Error! Invalid answer. Please enter 'SuperMario' or 'StarWars'.");
+			}
+		}
+		return s.toLowerCase();
+	}
+	
 
 	public static String getStringYN(Scanner sc, String prompt) {
 		String s = null;
