@@ -26,8 +26,8 @@ public class UsedCar extends Car {
 		DecimalFormat dfi = new DecimalFormat("#,###.0"); // format for mileage
 
 		
-		return String.format("%-1d", carID)+ "." + String.format("%-18s", capsFirst(make)) + String.format("%-18s", capsFirst(model)) + String.format("%-18d", year) 
-		+ "$" + String.format(df.format(price)) + " (Used) " + String.format(dfi.format(mileage)) + " miles";
+		return String.format("%-1d", getCarID())+ "." + String.format("%-18s", capsFirst(getMake())) + String.format("%-18s", capsFirst(getModel())) + String.format("%-18d", getYear()) 
+		+ "$" + String.format(df.format(getPrice())) + " (Used) " + String.format(dfi.format(mileage)) + " miles";
 	}
 	
 	

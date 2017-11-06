@@ -145,7 +145,7 @@ public class CarApp {
 	public static Car viewCar(Scanner sc, ArrayList<Car> arr, int vehicleLocation) {
 		Car soldCar = null;
 		for (Car car : arr) {
-			if (car.carID == vehicleLocation) {
+			if (car.getCarID() == vehicleLocation) {
 				String userChoiceTemp = Validator.getStringYN(sc, "Do you want to really buy this vehicle? (y/n): ");
 				if (userChoiceTemp.equalsIgnoreCase("y")) {
 					soldCar = car;
@@ -169,7 +169,7 @@ public class CarApp {
 					"\nPlease choose which vehicle you are interested in purchasing. Please enter the vehicle#: ", 1,
 					totalCars);
 			for (Car car : arr) {
-				if (car.carID == carSelection) {
+				if (car.getCarID() == carSelection) {
 					System.out.println(car.toString());
 				}
 			}
@@ -182,7 +182,7 @@ public class CarApp {
 		if (!arr.isEmpty()) {
 			System.out.println("\n\nCurrent New Vehicles Inventory:");
 			for (Car car : arr) {
-				if (car.carType.equalsIgnoreCase("y")) {
+				if (car.getCarType().equalsIgnoreCase("y")) {
 					System.out.println(car.toString());
 				}
 			}
@@ -195,7 +195,7 @@ public class CarApp {
 		if (!arr.isEmpty()) {
 			System.out.println("\n\nCurrent Used Vehicles Inventory:");
 			for (Car car : arr) {
-				if (car.carType.equalsIgnoreCase("n")) {
+				if (car.getCarType().equalsIgnoreCase("n")) {
 					System.out.println(car.toString());
 				}
 			}

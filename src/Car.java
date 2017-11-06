@@ -10,12 +10,12 @@ import java.text.DecimalFormat;
  */
 public class Car {
 	// store all the instance variables for the Car objects that we can reference when needed
-	protected String make;
-	protected String model;
-	protected int year;
-	protected double price;
-	protected int carID;
-	protected String carType;
+	private String make;
+	private String model;
+	private int year;
+	private double price;
+	private int carID;
+	private String carType;
 
 	
 	Car() {
